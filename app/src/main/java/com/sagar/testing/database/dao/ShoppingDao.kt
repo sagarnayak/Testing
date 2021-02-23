@@ -1,7 +1,7 @@
-package com.sagar.testing.data.dao
+package com.sagar.testing.database.dao
 
 import androidx.room.*
-import com.sagar.testing.data.entity.ShoppingItem
+import com.sagar.testing.database.entity.ShoppingItem
 import io.reactivex.Completable
 import io.reactivex.Observable
 

@@ -1,4 +1,4 @@
-package com.sagar.testing.data.entity
+package com.sagar.testing.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
