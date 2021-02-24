@@ -33,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
+    }
 }
 
 dependencies {
@@ -82,7 +86,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
     //logutil
-    implementation 'com.github.sagarnayak:LogUtil:2.1.0'
+    implementation 'com.github.sagarnayak:LogUtil:3.0.0'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
