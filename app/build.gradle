@@ -4,6 +4,20 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'de.mannodermaus.android-junit5'
+    id 'maven-publish'
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "TestRepo"
+            url = uri("https://maven.pkg.github.com/sagarnayak/TestRepo")
+            credentials {
+                username = project.findProperty("gpr.user") as String ?: System.getenv("sagarnayak")
+                password = project.findProperty("gpr.key") as String ?: System.getenv("72d434726f4a9cd4b18f03b8c4c8a7e2ec34f648")
+            }
+        }
+    }
 }
 
 android {
@@ -46,6 +60,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
+    implementation('https://github.com/sagarnayak/TestRepo')
+
     //hilt
     implementation "com.google.dagger:hilt-android:2.32-alpha"
     kapt "com.google.dagger:hilt-compiler:2.32-alpha"
@@ -83,6 +99,7 @@ dependencies {
     //room
     def room_version = "2.2.6"
     implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
     //logutil
@@ -94,6 +111,7 @@ dependencies {
     testImplementation("com.google.truth:truth:1.1.2")
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation("androidx.arch.core:core-testing:2.1.0")
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation("com.google.truth:truth:1.1.2")
 }
