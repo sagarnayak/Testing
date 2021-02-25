@@ -1,9 +1,12 @@
 package com.sagar.testing.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import com.sagar.android.logutilmaster.LogUtil
 import com.sagar.testing.BuildConfig
+import com.sagar.testing.network.ApiInterface
 import com.sagar.testing.network.NetworkModule
+import com.sagar.testing.repository.Repository
 import com.sagar.testing.shared_pref.SharedPrefModule
 import dagger.Module
 import dagger.Provides
@@ -34,4 +37,16 @@ object AppModule {
     @Singleton
     @Provides
     fun providesSharedPref(@ApplicationContext context: Context) = SharedPrefModule(context).pref
+
+    @Singleton
+    @Provides
+    fun providesRepository(
+        pref: SharedPreferences,
+        logUtil: LogUtil,
+        apiInterface: ApiInterface
+    ) = Repository(
+        pref,
+        logUtil,
+        apiInterface
+    )
 }
