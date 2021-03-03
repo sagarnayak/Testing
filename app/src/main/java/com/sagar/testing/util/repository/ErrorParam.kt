@@ -1,4 +1,4 @@
-package com.remittance.model
+package com.sagar.testing.util.repository
 
 data class ErrorParam(
     var param: String = "",

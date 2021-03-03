@@ -1,7 +1,5 @@
 package com.sagar.testing.util.repository
 
-import com.remittance.model.ErrorParam
-
 data class Result(
     private var code: Int = 0,
     var type: String = "",
