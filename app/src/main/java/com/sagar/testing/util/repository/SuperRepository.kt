@@ -570,7 +570,7 @@ open class SuperRepository {
             logThisError(ex.toString())
             val errorReply = Result(
                 StatusCode.FailedToParseData.code,
-                "Failed to parse data",
+                type = "Failed to parse data",
                 result = ResultType.FAIL
             )
             errorMutableLiveData?.postValue(
