@@ -1,6 +1,5 @@
 package com.sagar.testing
 
-import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before
@@ -19,7 +18,7 @@ class ResourceComparereTest {
     fun testOne() {
         assertThat(
             resourceComparere.isEqual(
-                ApplicationProvider.getApplicationContext<Context>(),
+                ApplicationProvider.getApplicationContext(),
                 R.string.app_name,
                 "Testing"
             )
@@ -31,7 +30,7 @@ class ResourceComparereTest {
     fun testTwo() {
         assertThat(
             resourceComparere.isEqual(
-                ApplicationProvider.getApplicationContext<Context>(),
+                ApplicationProvider.getApplicationContext(),
                 R.string.app_name,
                 "Testing Two"
             )
